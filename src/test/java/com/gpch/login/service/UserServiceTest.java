@@ -1,7 +1,6 @@
 package com.gpch.login.service;
 
 import com.gpch.login.model.User;
-import com.gpch.login.repository.RoleRepository;
 import com.gpch.login.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,8 +17,7 @@ public class UserServiceTest {
 
     @Mock
     private UserRepository mockUserRepository;
-    @Mock
-    private RoleRepository mockRoleRepository;
+
     @Mock
     private BCryptPasswordEncoder mockBCryptPasswordEncoder;
 
@@ -30,7 +28,6 @@ public class UserServiceTest {
     public void setUp() {
         initMocks(this);
         userServiceUnderTest = new UserService(mockUserRepository,
-                                               mockRoleRepository,
                                                mockBCryptPasswordEncoder);
         user = User.builder()
                 .id(1)
